@@ -43,7 +43,7 @@ public class GameResults {
         Collections.sort(list, new Comparator<Map.Entry<GameResult, Integer>>() {
             @Override
             public int compare(Map.Entry<GameResult, Integer> o1, Map.Entry<GameResult, Integer> o2) {
-                return o1.getKey().getOrder() - o1.getKey().getOrder();
+                return o1.getKey().getOrder() - o2.getKey().getOrder();
             }
         });
 
