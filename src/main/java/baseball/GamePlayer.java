@@ -1,23 +1,26 @@
 package baseball;
 
-import baseball.common.constants.GameResult;
+import baseball.common.exception.GameException;
 import baseball.domain.AttackNumbers;
 import baseball.domain.GameNumbers;
+import baseball.domain.GameResults;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class GamePlayer {
     private static final int GAME_NUMBER_LENGTH = 3;
+    private GameNumbers gameNumbers;
 
-    public void play(AttackNumbers attackNumbers) {
-        GameNumbers gameNumbers = new GameNumbers(GAME_NUMBER_LENGTH);
-
+    public GamePlayer() {
+        gameNumbers = new GameNumbers(GAME_NUMBER_LENGTH);
     }
 
-    protected Map<GameResult, Integer> getGameResult(AttackNumbers attackNumbers, GameNumbers gameNumbers) {
-        Map<GameResult, Integer> result = new HashMap<>();
-
-        return result;
+    public GameResults play(String numbers) throws GameException {
+        /*TODO
+        *  테스트를 위한 로그 코드로 삭제해야함*/
+        System.out.println(gameNumbers);
+        AttackNumbers attackNumbers = new AttackNumbers(numbers);
+        GameResults gameResults = gameNumbers.attack(attackNumbers);
+        gameResults.sort();
+        return gameResults;
     }
 }

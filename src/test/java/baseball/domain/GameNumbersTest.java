@@ -3,26 +3,21 @@ package baseball.domain;
 import baseball.GamePlayer;
 import baseball.common.constants.GameResult;
 import baseball.common.exception.GameException;
-import baseball.domain.AttackNumbers;
-import baseball.domain.GameNumbers;
-import baseball.domain.Number;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class GameNumbersTest {
     private GamePlayer gamePlayer;
-    private Map<GameResult, Integer> result;
+    private GameResults result;
 
     @BeforeEach
     void setUp() {
         gamePlayer = new GamePlayer();
-        result = new HashMap<>();
+        result = new GameResults();
     }
 
     @Test

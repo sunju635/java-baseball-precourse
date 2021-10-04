@@ -2,7 +2,9 @@ package baseball.common.exception;
 
 import baseball.common.exception.code.GameErrorCode;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ExceptionChecker {
     private static final String NUMBER_REG_EXP = "^[0-9]+$";
@@ -30,6 +32,12 @@ public class ExceptionChecker {
     public void checkInputNumberRange(int number) throws GameException {
         if(number > 9 || number < 1) {
             throw new GameException(GameErrorCode.NUMBER_RANGE);
+        }
+    }
+
+    public void checkGameRestartNumber(String gameStartResponse) throws  GameException {
+        if(!"1".equals(gameStartResponse) && !"2".equals(gameStartResponse)) {
+            throw new GameException(GameErrorCode.GAME_RESTART_WRONG_NUMBER);
         }
     }
 

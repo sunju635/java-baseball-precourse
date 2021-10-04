@@ -4,9 +4,7 @@ import baseball.common.constants.GameResult;
 import nextstep.utils.Randoms;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class GameNumbers {
     private static final int START_INCLUSIVE = 1;
@@ -43,18 +41,18 @@ public class GameNumbers {
         return this.gameNumbers.contains(number);
     }
 
-    public Map<GameResult, Integer> attack(AttackNumbers attackNumbers) {
-        Map<GameResult, Integer> result = new HashMap<>();
+    public GameResults attack(AttackNumbers attackNumbers) {
+        GameResults gameResults = new GameResults();
         List<Number> attackNumberList = attackNumbers.getAttackNumbers();
 
         for(int i = 0; i < attackNumberList.size(); i++) {
             GameResult gameResult = getResult(attackNumberList.get(i), i);
             if(gameResult != null) {
-                result.put(gameResult, countGameResult(gameResult, result));
+                gameResults.put(gameResult);
             }
         }
 
-        return result;
+        return gameResults;
     }
 
     private GameResult getResult(Number number, int index) {
@@ -80,10 +78,6 @@ public class GameNumbers {
             return true;
         }
         return false;
-    }
-
-    private int countGameResult(GameResult gameResult, Map<GameResult, Integer> result) {
-        return result.get(gameResult) == null ? 1 : result.get(gameResult) + 1;
     }
 
     @Override
