@@ -15,6 +15,10 @@ public class GameNumbers {
         this.gameNumbers = generateGameNumber(length);
     }
 
+    public GameNumbers(List<GameNumber> gameNumbers) {
+        this.gameNumbers = gameNumbers;
+    }
+
     private List<GameNumber> generateGameNumber(int length) {
         List<GameNumber> attackLottoNumber = new ArrayList<>();
 
