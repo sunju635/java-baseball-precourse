@@ -33,10 +33,29 @@ public class GameNumbers {
 
     public Map<GameResult, Integer> attack(AttackNumbers attackNumbers) {
         Map<GameResult, Integer> result = new HashMap<>();
+        List<Number> attackNumberList = attackNumbers.getAttackNumbers();
+        
+        for(int i = 0; i < attackNumberList.size(); i++) {
+            GameResult gameResult = getResult(attackNumberList.get(i), i);
+            result.put(gameResult, countGameResult(gameResult, result));
+        }
 
         return result;
     }
 
+    private GameResult getResult(Number number, int index) {
+        if((this.gameNumbers.get(index)).equals(number)) {
+            return GameResult.STRIKE;
+        }
+        if((this.gameNumbers.contains(number))) {
+            return GameResult.BALL;
+        }
+        return GameResult.NOTHING;
+    }
+
+    private int countGameResult(GameResult gameResult, Map<GameResult, Integer> result) {
+        return result.get(gameResult) == null ? 1 : result.get(gameResult) + 1;
+    }
 
     @Override
     public String toString() {

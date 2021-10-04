@@ -5,9 +5,11 @@ import baseball.common.exception.GameException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class AttackNumbers {
+
     private List<Number> attackNumbers;
 
     public AttackNumbers(String numbers) throws GameException {
@@ -20,6 +22,10 @@ public class AttackNumbers {
         for(String number : numberList) {
             this.attackNumbers.add(new Number(number));
         }
+    }
+
+    public List<Number> getAttackNumbers() {
+        return Collections.unmodifiableList(this.attackNumbers);
     }
 
     @Override

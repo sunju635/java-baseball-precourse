@@ -32,8 +32,6 @@ class GameNumbersTest {
         result = gameNumbers.attack(attackNumbers);
 
         assertThat(result.get(GameResult.NOTHING)).isEqualTo(3);
-        assertThat(result.get(GameResult.BALL)).isEqualTo(0);
-        assertThat(result.get(GameResult.STRIKE)).isEqualTo(0);
     }
 
     @Test
@@ -42,9 +40,7 @@ class GameNumbersTest {
         GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new Number(3), new Number(1), new Number(2)));
         result = gameNumbers.attack(attackNumbers);
 
-        assertThat(result.get(GameResult.NOTHING)).isEqualTo(0);
         assertThat(result.get(GameResult.BALL)).isEqualTo(3);
-        assertThat(result.get(GameResult.STRIKE)).isEqualTo(0);
     }
 
     @Test
@@ -53,8 +49,6 @@ class GameNumbersTest {
         GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new Number(1), new Number(2), new Number(3)));
         result = gameNumbers.attack(attackNumbers);
 
-        assertThat(result.get(GameResult.NOTHING)).isEqualTo(0);
-        assertThat(result.get(GameResult.BALL)).isEqualTo(0);
         assertThat(result.get(GameResult.STRIKE)).isEqualTo(3);
     }
 
