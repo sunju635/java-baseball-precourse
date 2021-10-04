@@ -1,4 +1,4 @@
-package baseball;
+package baseball.domain;
 
 import baseball.common.exception.GameException;
 import baseball.common.exception.code.GameErrorCode;
