@@ -15,20 +15,32 @@ public class GameNumbers {
     List<Number> gameNumbers;
 
     public GameNumbers(int length) {
-        this.gameNumbers = generateGameNumber(length);
+        generateGameNumbers(length);
     }
 
     public GameNumbers(List<Number> gameNumbers) {
         this.gameNumbers = gameNumbers;
     }
 
-    private List<Number> generateGameNumber(int length) {
-        List<Number> gameNumber = new ArrayList<>();
+    private void generateGameNumbers(int length) {
+        this.gameNumbers = new ArrayList<>();
+        Number number;
         for(int i =0; i < length; i++) {
-            gameNumber.add(new Number(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE)));
+            this.gameNumbers.add(generateNumber());
+        }
+    }
+
+    private Number generateNumber() {
+        Number number = new Number(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE));
+        if(isDuplicated(number)) {
+            return generateNumber();
         }
 
-        return gameNumber;
+        return number;
+    }
+
+    private boolean isDuplicated(Number number) {
+        return this.gameNumbers.contains(number);
     }
 
     public Map<GameResult, Integer> attack(AttackNumbers attackNumbers) {
@@ -46,14 +58,28 @@ public class GameNumbers {
     }
 
     private GameResult getResult(Number number, int index) {
-        if((this.gameNumbers.get(index)).equals(number)) {
+        if(isStrike(number, index)) {
             return GameResult.STRIKE;
         }
-        if((this.gameNumbers.contains(number))) {
+        if(isContains(number)) {
             return GameResult.BALL;
         }
 
         return null;
+    }
+
+    private boolean isStrike(Number number, int index) {
+        if((this.gameNumbers.get(index)).equals(number)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isContains(Number number) {
+        if((this.gameNumbers.contains(number))) {
+            return true;
+        }
+        return false;
     }
 
     private int countGameResult(GameResult gameResult, Map<GameResult, Integer> result) {
