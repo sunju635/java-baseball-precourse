@@ -21,4 +21,11 @@ public class AttackNumbers {
             this.attackNumbers.add(new AttackNumber(number));
         }
     }
+
+    @Override
+    public String toString() {
+        return "AttackNumbers{" +
+                "attackNumbers=" + attackNumbers +
+                '}';
+    }
 }

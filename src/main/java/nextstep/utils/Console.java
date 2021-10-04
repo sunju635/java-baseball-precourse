@@ -55,4 +55,12 @@ public class Console {
     private static Scanner getScanner() {
         return new Scanner(System.in);
     }
+
+    public static void print(String message) {
+        System.out.print(message);
+    }
+
+    public static void printLine(String message) {
+        System.out.println(message);
+    }
 }
