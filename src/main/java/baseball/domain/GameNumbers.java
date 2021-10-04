@@ -34,10 +34,12 @@ public class GameNumbers {
     public Map<GameResult, Integer> attack(AttackNumbers attackNumbers) {
         Map<GameResult, Integer> result = new HashMap<>();
         List<Number> attackNumberList = attackNumbers.getAttackNumbers();
-        
+
         for(int i = 0; i < attackNumberList.size(); i++) {
             GameResult gameResult = getResult(attackNumberList.get(i), i);
-            result.put(gameResult, countGameResult(gameResult, result));
+            if(gameResult != null) {
+                result.put(gameResult, countGameResult(gameResult, result));
+            }
         }
 
         return result;
@@ -50,7 +52,8 @@ public class GameNumbers {
         if((this.gameNumbers.contains(number))) {
             return GameResult.BALL;
         }
-        return GameResult.NOTHING;
+
+        return null;
     }
 
     private int countGameResult(GameResult gameResult, Map<GameResult, Integer> result) {
