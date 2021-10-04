@@ -10,12 +10,12 @@ import java.util.Map;
 public class GamePlayer {
     private static final int GAME_NUMBER_LENGTH = 3;
 
-    public void play(AttackNumbers lottoNumbers) {
+    public void play(AttackNumbers attackNumbers) {
         GameNumbers gameNumbers = new GameNumbers(GAME_NUMBER_LENGTH);
 
     }
 
-    protected Map<GameResult, Integer> getGameResult(AttackNumbers lottoNumbers, GameNumbers gameNumbers) {
+    protected Map<GameResult, Integer> getGameResult(AttackNumbers attackNumbers, GameNumbers gameNumbers) {
         Map<GameResult, Integer> result = new HashMap<>();
 
         return result;

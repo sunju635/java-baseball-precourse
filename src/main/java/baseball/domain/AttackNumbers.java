@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AttackNumbers {
-    private List<AttackNumber> attackNumbers;
+    private List<Number> attackNumbers;
 
     public AttackNumbers(String numbers) throws GameException {
         ExceptionChecker exceptionChecker = new ExceptionChecker();
@@ -18,7 +18,7 @@ public class AttackNumbers {
 
         List<String> numberList = Arrays.asList(numbers.split(""));
         for(String number : numberList) {
-            this.attackNumbers.add(new AttackNumber(number));
+            this.attackNumbers.add(new Number(number));
         }
     }
 

@@ -3,8 +3,8 @@ package baseball;
 import baseball.common.constants.GameResult;
 import baseball.common.exception.GameException;
 import baseball.domain.AttackNumbers;
-import baseball.domain.GameNumber;
 import baseball.domain.GameNumbers;
+import baseball.domain.Number;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +27,7 @@ public class GamePlayerTest {
     @Test
     void 낫싱() throws GameException {
         AttackNumbers attackNumbers = new AttackNumbers("123");
-        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new GameNumber(4), new GameNumber(5), new GameNumber(6)));
+        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new Number(4), new Number(5), new Number(6)));
         result = gamePlayer.getGameResult(attackNumbers, gameNumbers);
 
         assertThat(result.get(GameResult.NOTHING)).isEqualTo(3);
@@ -38,7 +38,7 @@ public class GamePlayerTest {
     @Test
     void 볼() throws GameException {
         AttackNumbers attackNumbers = new AttackNumbers("123");
-        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new GameNumber(3), new GameNumber(1), new GameNumber(2)));
+        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new Number(3), new Number(1), new Number(2)));
         gamePlayer.getGameResult(attackNumbers, gameNumbers);
         result = gamePlayer.getGameResult(attackNumbers, gameNumbers);
 
@@ -50,7 +50,7 @@ public class GamePlayerTest {
     @Test
     void 스트라이크() throws GameException {
         AttackNumbers attackNumbers = new AttackNumbers("123");
-        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new GameNumber(1), new GameNumber(2), new GameNumber(3)));
+        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new Number(1), new Number(2), new Number(3)));
         gamePlayer.getGameResult(attackNumbers, gameNumbers);
         result = gamePlayer.getGameResult(attackNumbers, gameNumbers);
 
@@ -62,7 +62,7 @@ public class GamePlayerTest {
     @Test
     void 스트라이크_볼_낫싱() throws GameException {
         AttackNumbers attackNumbers = new AttackNumbers("123");
-        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new GameNumber(1), new GameNumber(3), new GameNumber(4)));
+        GameNumbers gameNumbers = new GameNumbers(Arrays.asList(new Number(1), new Number(3), new Number(4)));
         gamePlayer.getGameResult(attackNumbers, gameNumbers);
         result = gamePlayer.getGameResult(attackNumbers, gameNumbers);
 

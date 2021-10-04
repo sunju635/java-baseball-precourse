@@ -9,24 +9,23 @@ public class GameNumbers {
     private static final int START_INCLUSIVE = 1;
     private static final int END_INCLUSIVE = 9;
 
-    List<GameNumber> gameNumbers;
+    List<Number> gameNumbers;
 
     public GameNumbers(int length) {
         this.gameNumbers = generateGameNumber(length);
     }
 
-    public GameNumbers(List<GameNumber> gameNumbers) {
+    public GameNumbers(List<Number> gameNumbers) {
         this.gameNumbers = gameNumbers;
     }
 
-    private List<GameNumber> generateGameNumber(int length) {
-        List<GameNumber> attackLottoNumber = new ArrayList<>();
-
+    private List<Number> generateGameNumber(int length) {
+        List<Number> gameNumber = new ArrayList<>();
         for(int i =0; i < length; i++) {
-            attackLottoNumber.add(new GameNumber(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE)));
+            gameNumber.add(new Number(Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE)));
         }
 
-        return attackLottoNumber;
+        return gameNumber;
     }
 
     @Override
