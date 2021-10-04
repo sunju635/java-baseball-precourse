@@ -1,9 +1,12 @@
 package baseball.domain;
 
+import baseball.common.constants.GameResult;
 import nextstep.utils.Randoms;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GameNumbers {
     private static final int START_INCLUSIVE = 1;
@@ -27,6 +30,13 @@ public class GameNumbers {
 
         return gameNumber;
     }
+
+    public Map<GameResult, Integer> attack(AttackNumbers attackNumbers) {
+        Map<GameResult, Integer> result = new HashMap<>();
+
+        return result;
+    }
+
 
     @Override
     public String toString() {
