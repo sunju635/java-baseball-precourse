@@ -6,6 +6,8 @@ import java.util.*;
 
 public class GameResults {
 
+    private static final int SUCCESS_STRIKE_COUNT = 3;
+
     Map<GameResult, Integer> gameResults;
 
 
@@ -26,7 +28,7 @@ public class GameResults {
     }
 
     public boolean isSuccess() {
-        return this.gameResults.get(GameResult.STRIKE) != null && this.gameResults.get(GameResult.STRIKE) == 3 ? true : false;
+        return this.gameResults.get(GameResult.STRIKE) != null && this.gameResults.get(GameResult.STRIKE) == SUCCESS_STRIKE_COUNT ? true : false;
     }
 
     public boolean isNothing() {
@@ -38,6 +40,15 @@ public class GameResults {
     }
 
     public void sort() {
+        Map<GameResult, Integer> sortedMap = new LinkedHashMap<>();
+        for(Map.Entry<GameResult, Integer> map : sortGameResultKeyAsList()) {
+            sortedMap.put(map.getKey(), map.getValue());
+        }
+
+        this.gameResults = sortedMap;
+    }
+
+    private List<Map.Entry<GameResult, Integer>> sortGameResultKeyAsList() {
         List<Map.Entry<GameResult, Integer>> list = new LinkedList<>(this.gameResults.entrySet());
 
         Collections.sort(list, new Comparator<Map.Entry<GameResult, Integer>>() {
@@ -47,11 +58,7 @@ public class GameResults {
             }
         });
 
-        Map<GameResult, Integer> sortedMap = new LinkedHashMap<>();
-        for(Map.Entry<GameResult, Integer> map : list) {
-            sortedMap.put(map.getKey(), map.getValue());
-        }
-
-        this.gameResults = sortedMap;
+        return list;
     }
+
 }
