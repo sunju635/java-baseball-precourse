@@ -50,4 +50,51 @@
 
 ## 디렉터리 구조
 
-` `
+```
+└─src
+├─main
+│  └─java
+│      ├─baseball
+│      │  │  Application.java               // Game App(게임 시작)
+│      │  │  GamePlayer.java                // Game player
+│      │  │  GamePrinter.java               // Game 입출력
+│      │  │  GameStarter.java               // Game starter
+│      │  │
+│      │  ├─common
+│      │  │  ├─constants
+│      │  │  │      GameResult.java         // 게임 결과
+│      │  │  │      NoticeMessage.java      // 사용자 Notice 메시지
+│      │  │  │
+│      │  │  └─exception
+│      │  │      │  ExceptionChecker.java   // Exception checker
+│      │  │      │  GameException.java      // Game 전역 Exception
+│      │  │      │
+│      │  │      └─code
+│      │  │              GameErrorCode.java // Game Error code
+│      │  │
+│      │  └─domain
+│      │          AttackNumbers.java        // 공격 숫자
+│      │          GameNumbers.java          // 컴퓨터 생성 숫자
+│      │          GameResults.java          // 게임 결과
+│      │          Number.java               // 숫자
+│      │
+│      └─nextstep
+│          └─utils
+│                  Console.java             // Console util
+│                  Randoms.java             // Random util
+│
+└─test
+└─java
+├─baseball
+│  │  ApplicationTest.java
+│  │
+│  └─domain
+│          AttackNumbersTest.java
+│          GameNumbersTest.java
+│          GameResultsTest.java
+│          NumberTest.java
+│
+└─nextstep
+└─test
+NSTest.java 
+```
