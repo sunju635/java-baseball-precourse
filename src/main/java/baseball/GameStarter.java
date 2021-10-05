@@ -18,7 +18,7 @@ public class GameStarter {
         String numbers = Console.readLine();
         try{
             GameResults gameResults = gamePlayer.play(numbers);
-            isRestart = gameViewer.printGameResult(gameResults);
+            isRestart = gameViewer.printResultAndGetIsResult(gameResults);
             reStart(gameResults.isSuccess(), gamePlayer);
         }catch (GameException e) {
             Console.printLine(e.getMessage());

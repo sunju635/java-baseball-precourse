@@ -8,7 +8,18 @@ import baseball.domain.GameResults;
 import nextstep.utils.Console;
 
 public class GamePrinter {
-    public boolean printGameResult(GameResults gameResult) {
+    public boolean printResultAndGetIsResult(GameResults gameResult) {
+        printGameResult(gameResult);
+
+        if(gameResult.isSuccess()) {
+            Console.printLine(NoticeMessage.THREE_STRIKE.getMessage());
+            return printSuccessResultAndGetIsResult();
+        }
+
+        return true;
+    }
+
+    public void printGameResult(GameResults gameResult) {
         if(gameResult.isNothing()) {
             Console.print(GameResult.NOTHING.getResult());
         }
@@ -18,16 +29,9 @@ public class GamePrinter {
         }
 
         Console.printLine("");
-
-        if(gameResult.isSuccess()) {
-            Console.printLine(NoticeMessage.THREE_STRIKE.getMessage());
-            return printSuccessResult();
-        }
-
-        return true;
     }
 
-    private boolean printSuccessResult() {
+    private boolean printSuccessResultAndGetIsResult() {
         Console.printLine(NoticeMessage.SUCCESS.getMessage());
         String gameStartResponse = Console.readLine();
 
@@ -35,7 +39,7 @@ public class GamePrinter {
             return isSuccessRestart(gameStartResponse);
         } catch (GameException e) {
             Console.printLine(e.getMessage());
-            return printSuccessResult();
+            return printSuccessResultAndGetIsResult();
         }
     }
 
