@@ -13,15 +13,18 @@ public class AttackNumbers {
     private List<Number> attackNumbers;
 
     public AttackNumbers(String numbers) throws GameException {
-        ExceptionChecker exceptionChecker = new ExceptionChecker();
-        exceptionChecker.checkInputNumbers(numbers);
+        new ExceptionChecker().checkInputNumbers(numbers);
+        this.attackNumbers = convertToList(numbers);
+    }
 
-        this.attackNumbers = new ArrayList<>();
-
+    private List<Number> convertToList(String numbers) throws GameException {
         List<String> numberList = Arrays.asList(numbers.split(""));
+        List<Number> resultList = new ArrayList<>();
         for(String number : numberList) {
-            this.attackNumbers.add(new Number(number));
+            resultList.add(new Number(number));
         }
+
+        return resultList;
     }
 
     public List<Number> getAttackNumbers() {
