@@ -5,7 +5,11 @@ import baseball.domain.AttackNumbers;
 import baseball.domain.GameNumbers;
 import baseball.domain.GameResults;
 
-
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class GamePlayer {
     private static final int GAME_NUMBER_LENGTH = 3;
     private GameNumbers gameNumbers;

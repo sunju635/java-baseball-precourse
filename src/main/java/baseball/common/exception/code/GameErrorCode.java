@@ -1,5 +1,10 @@
 package baseball.common.exception.code;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public enum GameErrorCode {
     NUMBER_LENGTH("0001", "숫자는 3개를 입력해주십시오."),
     NUMBER_DUPLICATED("0002", "중복된 숫자를 입력 할 수 없습니다."),
@@ -10,6 +15,10 @@ public enum GameErrorCode {
     private String errorCode;
     private String errorMessage;
 
+    /**
+     * @param errorCode   error code
+     * @param errorMessage   사용자에게 출력 될 error message
+     */
     GameErrorCode(String errorCode, String errorMessage) {
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;

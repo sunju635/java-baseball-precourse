@@ -4,6 +4,11 @@ import baseball.common.constants.GameResult;
 
 import java.util.*;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class GameResults {
 
     private static final int SUCCESS_STRIKE_COUNT = 3;
@@ -27,10 +32,22 @@ public class GameResults {
         return this.gameResults.get(gameResult);
     }
 
+    /**
+     * 사용자가 게임에 승리하였는지 확인한다.
+     * <p>
+     * 3STRIKE의 경우 사용자가 승리
+     * </p>
+     */
     public boolean isSuccess() {
         return this.gameResults.get(GameResult.STRIKE) != null && this.gameResults.get(GameResult.STRIKE) == SUCCESS_STRIKE_COUNT ? true : false;
     }
 
+    /**
+     * 게임 결과가 낫싱인지 확인한다.
+     * <p>
+     * 낫싱은 GameResult에 저장된 값이 없으므로 size가 0이다. 단, 생성자에서 초기화가 이루어지므로 null은 아니다.
+     * </p>
+     */
     public boolean isNothing() {
         return this.gameResults.size() == 0 ? true : false;
     }
@@ -39,6 +56,9 @@ public class GameResults {
         return this.gameResults.keySet();
     }
 
+    /**
+     * 게임 결과를 GameResult order에 맞게 sorting한다.
+     */
     public void sort() {
         Map<GameResult, Integer> sortedMap = new LinkedHashMap<>();
         for(Map.Entry<GameResult, Integer> map : sortGameResultKeyAsList()) {

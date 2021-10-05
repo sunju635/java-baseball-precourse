@@ -5,6 +5,11 @@ import baseball.common.exception.GameException;
 
 import java.util.Objects;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class Number {
     private int number;
 

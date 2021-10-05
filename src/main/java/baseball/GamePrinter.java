@@ -7,7 +7,18 @@ import baseball.common.exception.GameException;
 import baseball.domain.GameResults;
 import nextstep.utils.Console;
 
+/**
+ * @author 정선주
+ * @version 1.0
+ * @since 1.0
+ */
 public class GamePrinter {
+
+    /**
+     * 게임 결과를 출력하고, 재시작 여부를 확인한다.
+     *
+     * @param gameResult 게임 결과
+     */
     public boolean printResultAndGetIsResult(GameResults gameResult) {
         printGameResult(gameResult);
 
