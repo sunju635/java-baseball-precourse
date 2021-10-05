@@ -14,10 +14,8 @@ public class Number {
     private int number;
 
     public Number(String number) throws GameException {
-        ExceptionChecker exceptionChecker = new ExceptionChecker();
-
         int parsedNumber = Integer.parseInt(number);
-        exceptionChecker.checkInputNumberRange(parsedNumber);
+        new ExceptionChecker().checkInputNumberRange(parsedNumber);
 
         this.number = parsedNumber;
     }
