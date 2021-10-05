@@ -14,6 +14,10 @@ import nextstep.utils.Console;
  */
 public class GamePrinter {
 
+    public void askAttackNumber() {
+        Console.print(NoticeMessage.ASK_INPUT_NUMBERS.getMessage() + " : ");
+    }
+
     /**
      * 게임 결과를 출력하고, 재시작 여부를 확인한다.
      *

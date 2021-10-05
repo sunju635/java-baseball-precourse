@@ -25,7 +25,7 @@ public class GameStarter {
      * Error로 인해 게임을 다시 시작한다. (컴퓨터가 생성 했던 숫자는 그대로 유지)
      */
     public void start(GamePlayer gamePlayer) {
-        Console.print(NoticeMessage.ASK_INPUT_NUMBERS.getMessage() + " : ");
+        gameViewer.askAttackNumber();
         String numbers = Console.readLine();
         try{
             // (a) 게임을 진행한다.
