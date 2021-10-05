@@ -8,6 +8,11 @@ import java.util.Set;
 
 public class ExceptionChecker {
     private static final String NUMBER_REG_EXP = "^[0-9]+$";
+    private static final int ATTACK_NUMBER_LENGTH = 3;
+    private static final int NUMBER_MAX_RANGE = 9;
+    private static final int NUMBER_MIN_RANGE = 1;
+    private static final String GAME_RESTART_RESPONSE_YES = "1";
+    private static final String GAME_RESTART_RESPONSE_NO = "2";
 
     public void checkInputNumberFormat(String numbers) throws GameException {
         if(!numbers.matches(NUMBER_REG_EXP)) {
@@ -16,27 +21,26 @@ public class ExceptionChecker {
     }
 
     public void checkInputNumberLength(String numbers) throws GameException {
-        if(numbers.length() != 3) {
+        if(numbers.length() != ATTACK_NUMBER_LENGTH) {
             throw new GameException(GameErrorCode.NUMBER_LENGTH);
         }
     }
 
     public void checkInputNumberDuplicated(String numbers) throws GameException {
-        String[] numbersArray = numbers.split("");
         Set<String> numberSet = new HashSet<>(Arrays.asList(numbers.split("")));
-        if(numberSet.size() < 3) {
+        if(numberSet.size() < ATTACK_NUMBER_LENGTH) {
             throw new GameException(GameErrorCode.NUMBER_DUPLICATED);
         }
     }
 
     public void checkInputNumberRange(int number) throws GameException {
-        if(number > 9 || number < 1) {
+        if(number > NUMBER_MAX_RANGE || number < NUMBER_MIN_RANGE) {
             throw new GameException(GameErrorCode.NUMBER_RANGE);
         }
     }
 
-    public void checkGameRestartNumber(String gameStartResponse) throws  GameException {
-        if(!"1".equals(gameStartResponse) && !"2".equals(gameStartResponse)) {
+    public void checkGameRestartNumber(String gameRestartResponse) throws  GameException {
+        if(!GAME_RESTART_RESPONSE_YES.equals(gameRestartResponse) && !GAME_RESTART_RESPONSE_NO.equals(gameRestartResponse)) {
             throw new GameException(GameErrorCode.GAME_RESTART_WRONG_NUMBER);
         }
     }
