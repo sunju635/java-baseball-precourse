@@ -30,7 +30,7 @@ public class GamePrinter {
         return true;
     }
 
-    public void printGameResult(GameResults gameResult) {
+    private void printGameResult(GameResults gameResult) {
         if(gameResult.isNothing()) {
             Console.print(GameResult.NOTHING.getResult());
         }
@@ -54,10 +54,10 @@ public class GamePrinter {
         }
     }
 
-    private boolean isSuccessRestart(String gameStartResponse) throws GameException {
-        new ExceptionChecker().checkGameRestartNumber(gameStartResponse);
+    private boolean isSuccessRestart(String gameRestartResponse) throws GameException {
+        new ExceptionChecker().checkGameRestartNumber(gameRestartResponse);
 
-        if("2".equals(gameStartResponse)) {
+        if("2".equals(gameRestartResponse)) {
             return false;
         }
 
