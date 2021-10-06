@@ -69,9 +69,7 @@ public class GameNumbers {
 
         for(int i = 0; i < attackNumberList.size(); i++) {
             GameResult gameResult = getResult(attackNumberList.get(i), i);
-            if(gameResult != null) {
-                gameResults.put(gameResult);
-            }
+            gameResults.put(gameResult);
         }
 
         return gameResults;

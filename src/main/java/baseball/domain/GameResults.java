@@ -21,7 +21,9 @@ public class GameResults {
     }
 
     public void put(GameResult gameResult) {
-        this.gameResults.put(gameResult, countGameResult(gameResult));
+        if(gameResult != null) {
+            this.gameResults.put(gameResult, countGameResult(gameResult));
+        }
     }
 
     private int countGameResult(GameResult gameResult) {
